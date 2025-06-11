@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>VAT Calculator</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.1/math.min.js"></script>
+</head>
+<body>
+  <h1>VAT Calculator</h1>
+  <input type="number" id="amount" placeholder="Enter amount" />
+  <button onclick="calculateVAT()">Calculate VAT</button>
+  <p id="result"></p>
+  <script>
+    function calculateVAT() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let vat = math.multiply(amount, 0.15);
+      let total = math.add(amount, vat);
+      document.getElementById("result").innerHTML = 
+        "VAT (15%): R" + vat.toFixed(2) + "<br>Total: R" + total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
